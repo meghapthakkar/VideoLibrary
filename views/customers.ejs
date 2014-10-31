@@ -1,0 +1,24 @@
+<div class="row-fluid" >
+
+            <div class="cl">&nbsp;</div>
+            <% if (customersList.length > 0) { %>
+            <% for (var i=0;i < customersList.length;i++) {
+             %>
+                  
+           
+            <tr class="info">
+                     <td class="info"><%= customersList[i].customer_id %></td>
+                     <td class="info"><%= customersList[i].firstname %></td>
+                     <td class="info">&nbsp;&nbsp;</td>
+                      <td class="info">&nbsp;&nbsp;</td>
+                      <td class="info">&nbsp;&nbsp;</td>
+                      <td class="info">&nbsp;&nbsp;</td>
+                      
+                     </tr> 
+                      <% } %>
+                 <% } else{%>
+                 <h2>nothing inside </h2>
+         <% } %>
+          </div>
+
+

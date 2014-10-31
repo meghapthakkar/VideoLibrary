@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MovieShack</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link class="cssdeck">
+
+<link rel="stylesheet" href="css/bootstrap.css" class="cssdeck">
+
+
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
+<script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="js/fns.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/validatesignup.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+<!-- Page -->
+
+<div id="page" class="shell">
+  <!-- Header -->
+  <div id="header">
+    <!-- Top Navigation -->
+    <% if(typeof uid != 'undefined' && uid != "" && uid != null) {%>
+      <% include logOutMenu.ejs %>
+    <%}%>
+    <!-- / Top Navigation -->
+    <div class="cl">&nbsp;</div>
+    <!-- Logo -->
+    <div id="logo">
+      <h1><a href="/">Movie<span>Shack</span></a></h1>
+      <p class="description">Your Movie zone</p>
+    </div><!-- / Logo -->
+    
+    <!-- Main Navigation --><!-- / Main Navigation -->
+ <div class="cl">&nbsp;</div>
+    <!-- Sort Navigation -->
+  <div id="sort-nav">
+    <div class="bg-right"> 
+
+      <div class="bg-left">
+        <% if(typeof uid != 'undefined' && uid != "" && uid != null) {%>
+          <% include userMenu.ejs %>
+
+        <%}%>
+         <div id="main">
+          <div id="main-bot"  style="background-image: url(/css/images/movie-collage-2010.jpg); no-repeat;height:640 px;width:640 px" >
+           
+
+
+          <div class="container-fluid">
+            
+            <div class="row-fluid">
+              <div class="col-lg-20 col-centered">
+              <div class="columns">
+             <div id="content">
+
+
+        <div class="block"></div>
+
+        <div class="block" style='width:400px'> 
+
+       <div class="block-bot">
+
+
+          <div class="head" >
+
+            <div class="head-cnt">
+       <% if(typeof uid != 'undefined' && uid != "" && uid != null) {%>
+                            <h2 class="text-center">Edit User</h2>
+               
+                            <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <p></p>
+              <div class="col-sm-offset-2 col-sm-10">
+                <div id="msginfo"></div>
+
+           
+                         <form class="form-signin"name="login" method="post" action="/updateUserDetails">
+
+                <div class="form-row">
+                  <span class="label">Firstname</span>
+                  <input type="text" name="tbfirstname" id="tbfirstname" class="form-control" tabindex="1" value="<%=firstname%>" autofocus maxlength="15" >
+                  
+                </div>
+                <p></p>
+                
+                <div class="form-row">
+                  <span class="label">LastName</span>
+                  <input type="text" value='<%=lastname%>' name="tblastName" id="tblastName" class="form-control" maxlength="15" 
+                  tabindex="2">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label">Address Line1</span>
+                  <input type="text" value='<%=addressline1%>' name="tbadd1" id="tbadd1" class="form-control" maxlength="40" 
+                  tabindex="3">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label">Address Line2</span>
+                  <input type="text" value='<%=addressline2%>' name="tbadd2" id="tbadd2" class="form-control" maxlength="40" 
+                  tabindex="4">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label">City</span>
+                  <input type="text" value='<%=city%>' name="tbcity" id="tbcity" class="form-control" tabindex="5" maxlength="20">
+                </div>
+                <p></p>
+                <div class="form-row">
+                  <span class="label">State</span>
+                    <select id="dpnstate" name="dpnstate" class="form-control" tabindex="6" >
+                     <option value="<%=state%>" selected="selected" ><%=state%></option>
+                     <option value="AL"  >AL</option>
+                     <option value="AK"  >AK</option>
+                     <option value="AZ"  >AZ</option>
+                     <option value="AR"  >AR</option>
+                     <option value="CA"  >CA</option>
+                     <option value="CO"  >CO</option>
+                     <option value="CT"  >CT</option>
+                     <option value="DE"  >DE</option>
+                     <option value="FL"  >FL</option>
+                     <option value="GA"  >GA</option>
+                     <option value="HI"  >HI</option>
+                     <option value="ID"  >ID</option>
+                     <option value="IL"  >IL</option>
+                     <option value="IN"  >IN</option>
+                     <option value="IA"  >IA</option>
+                     <option value="KS"  >KS</option>
+                     <option value="KY"  >KY</option>
+                     <option value="ME"  >ME</option>
+                     <option value="MD"  >MD</option>
+                     <option value="MA"  >MA</option>
+                     <option value="MI"  >MI</option>
+                     <option value="MN"  >MN</option>
+                     <option value="MS"  >MS</option>
+                     <option value="MO"  >MO</option>
+                     <option value="MT"  >MT</option>
+                     <option value="NE"  >NE</option>
+                     <option value="NV"  >NV</option>
+                     <option value="NJ"  >NJ</option>
+                     <option value="NM"  >NM</option>
+                     <option value="NY"  >NY</option>
+                     <option value="NC"  >NC</option>
+                     <option value="OH"  >OH</option>
+                     <option value="OK"  >OK</option>
+                     <option value="OR"  >OR</option>
+                     <option value="PA"  >PA</option>
+                     <option value="RI"  >RI</option>
+                     <option value="SC"  >SC</option>
+                     <option value="SD"  >SD</option>
+                     <option value="TN"  >TN</option>
+                     <option value="TX"  >TX</option>
+                     <option value="UT"  >UT</option>
+                     <option value="VT"  >VT</option>
+                     <option value="VA"  >VA</option>
+                     <option value="WA"  >WA</option>
+                     <option value="WV"  >WV</option>
+                     <option value="WI"  >WI</option>
+                     <option value="WY"  >WY</option>
+                     
+                    </select>
+                </div>
+
+
+
+               <p></p>
+                <div class="form-row">
+                  <span class="label">ZipCode</span>
+                  <table width="100%">
+                    <tr>
+                      <td width="40%">
+                        <input type="text" value='<%=zipcode%>' name="tbzipcode" id="tbzipcode" maxlength="5" 
+                      class="form-control" tabindex="7" style="width: 72%;">
+                      </td>
+                      <td style="color:white;width=5%;padding-right=2px;">-
+                      </td>
+                      <td width="55%">
+                        <span class="label">Add-ons</span>
+                       <%if( typeof addon != 'undefined' && addon != null && addon !="" ){%>
+                          <input type="text" value="<%=addon%>" name="tbaddon" id="tbaddon" maxlength="4" style="width: 64%;" class="form-control" tabindex="7">
+                        <%}else{%>
+                          <input type="text" value="" name="tbaddon" id="tbaddon" maxlength="4" style="width: 64%;" class="form-control" tabindex="7">
+                        <%}%>
+                      </td>
+                    </tr>
+                  </table>
+                    
+                </div>   
+
+
+                <p></p>
+
+                
+                    <p></p>
+
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  UserName: <%=username%>
+                </div> 
+
+                    <p></p>
+     
+                            <input type="submit" class="btn btn-primary" align="right" id="btnedit"  value="Update"/> 
+                            <a href="/myAccount" align="right" class="btn btn-primary" id="btncancel" value="Cancel">Cancel</a>
+                          <p></p><p></p>
+              </form>
+    
+          <%}else{ %>
+                <h2 class="text-center">Register User</h2>
+               
+                            <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <p></p>
+              <div class="col-sm-offset-2 col-sm-10">
+                <div id="msginfo"></div>
+ 
+               <form class="form-signin"name="login" method="post" action="/Register">
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" name="tbfirstname" id="tbfirstname" class="form-control" tabindex="1" placeholder="FirstName" autofocus maxlength="15" >
+                </div>
+                <p></p>
+                
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" placeholder="LastName" name="tblastName" id="tblastName" class="form-control" maxlength="15" 
+                  tabindex="2">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" placeholder="Address Line 1" name="tbadd1" id="tbadd1" class="form-control" maxlength="40" 
+                  tabindex="3">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" placeholder="Address Line 2" name="tbadd2" id="tbadd2" class="form-control" maxlength="40" 
+                  tabindex="4">
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" placeholder="City" name="tbcity" id="tbcity" class="form-control" tabindex="5" maxlength="20">
+                </div>
+                <p></p>
+                <div class="form-row">
+                    <select id="dpnstate" name="dpnstate" class="form-control" tabindex="6"  >
+                     <option value="" disabled="disabled" selected="selected" >State</option>
+                     <option value="AL"  >AL</option>
+                     <option value="AK"  >AK</option>
+                     <option value="AZ"  >AZ</option>
+                     <option value="AR"  >AR</option>
+                     <option value="CA"  >CA</option>
+                     <option value="CO"  >CO</option>
+                     <option value="CT"  >CT</option>
+                     <option value="DE"  >DE</option>
+                     <option value="FL"  >FL</option>
+                     <option value="GA"  >GA</option>
+                     <option value="HI"  >HI</option>
+                     <option value="ID"  >ID</option>
+                     <option value="IL"  >IL</option>
+                     <option value="IN"  >IN</option>
+                     <option value="IA"  >IA</option>
+                     <option value="KS"  >KS</option>
+                     <option value="KY"  >KY</option>
+                     <option value="ME"  >ME</option>
+                     <option value="MD"  >MD</option>
+                     <option value="MA"  >MA</option>
+                     <option value="MI"  >MI</option>
+                     <option value="MN"  >MN</option>
+                     <option value="MS"  >MS</option>
+                     <option value="MO"  >MO</option>
+                     <option value="MT"  >MT</option>
+                     <option value="NE"  >NE</option>
+                     <option value="NV"  >NV</option>
+                     <option value="NJ"  >NJ</option>
+                     <option value="NM"  >NM</option>
+                     <option value="NY"  >NY</option>
+                     <option value="NC"  >NC</option>
+                     <option value="OH"  >OH</option>
+                     <option value="OK"  >OK</option>
+                     <option value="OR"  >OR</option>
+                     <option value="PA"  >PA</option>
+                     <option value="RI"  >RI</option>
+                     <option value="SC"  >SC</option>
+                     <option value="SD"  >SD</option>
+                     <option value="TN"  >TN</option>
+                     <option value="TX"  >TX</option>
+                     <option value="UT"  >UT</option>
+                     <option value="VT"  >VT</option>
+                     <option value="VA"  >VA</option>
+                     <option value="WA"  >WA</option>
+                     <option value="WV"  >WV</option>
+                     <option value="WI"  >WI</option>
+                     <option value="WY"  >WY</option>
+                     
+                    </select>
+                </div>
+
+
+
+               <p></p>
+                <div class="form-row">
+                  <span class="label"></span>
+                  <table width="100%">
+                    <tr>
+                      <td width="40%">
+                        <input type="text" placeholder="ZipCode" name="tbzipcode" id="tbzipcode" maxlength="5" 
+                      class="form-control" tabindex="7" style="width: 72%;">
+                      </td>
+                      <td style="color:white;width=5%;padding-right=2px;">-
+                      </td>
+                      <td width="55%">
+                        <input type="text" placeholder="Add-ons" name="tbaddon" id="tbaddon" maxlength="4" style="width: 64%;" class="form-control" tabindex="7">
+                      </td>
+                    </tr>
+                  </table>
+                    
+                </div>                  <p></p>
+
+
+
+
+                <div class="form-row">
+                        <select id="tbmemtype" name="tbmemtype" class="form-control" tabindex="8" >
+                           <option value="" disabled="disabled" selected="selected" >Membership Type</option>
+                           <option value="1"  >Premium</option>
+                           <option value="0"  >Simple</option>                         
+                        </select>
+                    </div>
+                    <p></p>
+
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <input type="text" placeholder="UserName" name="tbusername" id="tbusername" class="form-control" 
+                  tabindex="9" maxlength="20">
+                </div>   
+
+
+                <p></p>
+                <div class="form-row">
+                      <span class="label"></span>
+                      <input type="password" placeholder="Password" name="tbpassword" id="tbpassword" class="form-control" maxlenght="20" tabindex="10">
+                    </div>   
+
+
+                    <p></p>
+     
+                            <input type="submit" class="btn btn-primary" id="btnsignup"  value="Register"/>
+                            <a href="/" align="right" class="btn btn-primary" id="btncancel" value="Cancel">Cancel</a>
+                            <p></p><p></p>
+              </form>
+     
+          <%}%>
+          
+
+          </div>
+ 
+         
+        
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      
+    
+    </div>
+
+
+
+
+</div>
+</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <!-- / Sort Navigation -->
+    
+  </div>
+
+
+  
+  </div>
+</div>
+  </body>

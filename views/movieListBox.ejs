@@ -1,0 +1,61 @@
+<div class="block">
+	<div class="block-bot" id="movieBlock">
+		<div class="head">
+			<div class="head-cnt">
+				<% if(movieList.length != 0){%> 
+				<a href="#" class="view-all" onClick="navigateMovieList('N');">Next</a>
+					<% } %>
+				<% if(!(typeof req === 'undefined') && req.session.currPage != 0){%> 
+				
+				<a href="#" class="view-all" onClick="navigateMovieList('P');">Prev</a>
+				
+				<% } %>
+				<h3 id="movieBoxTitle">Movies</h3>
+				<div class="cl">&nbsp;</div>
+			</div>
+		</div>
+
+		<div class="col-articles articles" >
+			<div class="cl">&nbsp;</div>
+
+			<% if(movieList.length == 0){ %>
+			<div class="article" style="width: 100%">
+				<p class="console">
+					<strong><%=alt%></strong>
+				</p>
+			</div>
+			<% } else{ for (var i=0;i < movieList.length;i++) { %>
+
+
+			<div class="article">
+				<div class="image">
+					<a href="http://all-free-download.com/free-website-templates/">
+						<div style="width: 198px; height: 150px; border-radius: 5px; border: 1px solid grey; text-align: center">
+							<h4>
+								<a href="#"><%= movieList[i].movie_name%></a>
+								
+							</h4>
+							<!--  <p style="width:150px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;"><%= movieList[i].movie_name%></p>-->
+							<p class="console" style="padding:3px">
+								<strong>Banner : <%=movieList[i].banner%></strong>
+							</p>
+							<p class="console" style="padding:3px">
+								<strong>Release Year : <%=movieList[i].releasedate%></strong>
+							</p>
+							<p class="console" style="padding:3px">
+								<strong>Rent : $<%=movieList[i].rent%></strong>
+							</p>
+							<p class="console" style="padding:3px">
+								<strong>Available Qty : <%=movieList[i].copies%></strong>
+							</p>
+						</div>
+					</a>
+				</div>
+
+
+			</div>
+			<% }} %>
+			<div class="cl">&nbsp;</div>
+		</div>
+	</div>
+</div>

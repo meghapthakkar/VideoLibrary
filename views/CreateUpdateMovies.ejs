@@ -1,0 +1,229 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%= title %>></title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link class="cssdeck">
+
+<link rel="stylesheet" href="css/bootstrap.css" class="cssdeck">
+
+
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
+<script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="js/fns.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/validatemovie.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+<!-- Page -->
+
+<div id="page" class="shell">
+  <!-- Header -->
+  <div id="header">
+    <!-- Top Navigation -->
+    <% include logOutMenuAdmin.ejs %>
+    <!-- / Top Navigation -->
+    <div class="cl">&nbsp;</div>
+    <!-- Logo -->
+    <div id="logo">
+      <h1><a href="link to our home page/contact page">Movie<span>Shack</span></a></h1>
+      <p class="description">Your Movie zone</p>
+    </div><!-- / Logo -->
+    
+    <!-- Main Navigation --><!-- / Main Navigation -->
+ <div class="cl">&nbsp;</div>
+    <!-- Sort Navigation -->
+  <div id="sort-nav">
+    <div class="bg-right"> 
+
+      <div class="bg-left">
+
+        <% include adminMenu.ejs %>
+
+
+         <div id="main">
+          <div id="main-bot" style="background-image: url(/css/images/movie-collage-2010.jpg); no-repeat;height:640 px;width:640 px">
+
+
+          <div class="container-fluid">
+            
+            <div class="row-fluid">
+              <div class="col-lg-20 col-centered">
+              <div class="columns">
+             <div id="content">
+
+
+        <div class="block"></div>
+
+        <div class="block" style='width:400px'> 
+
+       <div class="block-bot">
+
+
+          <div class="head" >
+
+            <div class="head-cnt">
+              <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%>
+                    <h2 class="text-center">Edit Movie</h2>
+              <%}else{%>
+                    <h2 class="text-center">Create Movie</h2>
+              <%}%>
+              
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <p></p>
+          <div id="msginfo"></div>
+          <div class="container-fluid">
+            <p></p>
+              <div class="col-sm-offset-2 col-sm-10">
+                
+            <!-- <form class="form-signin"name="login" method="post" action="/Register"> -->
+
+                <div class="form-row">
+                  <span class="label"></span>
+                    
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%>
+                    <input type="text" name="tbmoviename" id="tbmoviename" class="form-control" tabindex="1" 
+                    placeholder="MovieName" autofocus mexlength="15" value="<%= moviedata[0].movie_name %>" >
+                    <input type="hidden" id="hdnmvname" value="<%= moviedata[0].movie_name%>">
+                  <%}else{%>
+                    <input type="text" name="tbmoviename" id="tbmoviename" class="form-control" tabindex="1" 
+                    placeholder="MovieName" autofocus mexlength="15" >
+                    <input type="hidden" id="hdnmvname" value="-1111">
+                  <%}%>
+                  
+                </div>
+                <p></p>
+                
+                <div class="form-row">
+                  <span class="label"></span>
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%> 
+                    <input type="text" placeholder="Banner" name="tbbanner" id="tbbanner" class="form-control" mexlength="15" tabindex="2" value="<%= moviedata[0].banner %>">
+                  <%}else{%>
+                    <input type="text" placeholder="Banner" name="tbbanner" id="tbbanner" class="form-control" mexlength="15" tabindex="2">
+                  <%}%>
+                  
+                </div>
+                <p></p>
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%> 
+                    <input type="text" placeholder="ReleaseYear" name="tbreleaseyear" id="tbreleaseyear" maxlength="4" 
+                      class="form-control" tabindex="3" value="<%= moviedata[0].releasedate %>">
+                  <%}else{%>
+                    <input type="text" placeholder="ReleaseYear" name="tbreleaseyear" id="tbreleaseyear" maxlength="4" 
+                      class="form-control" tabindex="3">
+                  <%}%>
+
+                  
+                </div>   
+
+
+                <p></p>
+
+                <div class="form-row">
+                        <select id="dpnmoviecategory" name="dpnmoviecategory" class="form-control" tabindex="4" 
+                        multiple="multiple">
+                       <!--  <select id="dpnmoviecategory" name="dpnmoviecategory" class="form-control" tabindex="4" > -->
+                           <option value="" disabled="disabled"  >Movie Category</option>
+                        <% if(typeof catagory != 'undefined') {%>
+                           <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%> 
+                              <% for(var i = 0; i < catagory.length; i++) { %>
+                                <% if( selectcategory.indexOf(catagory[i].id) !=-1 ) {%> 
+                                  <option value="<%= catagory[i].id %>" selected="selected"><%= catagory[i].name %>
+                                  </option>
+                                <%}else{%>
+                                  <option value="<%= catagory[i].id %>"><%= catagory[i].name %></option>
+                                <% } %> 
+                              <% } %>
+                           <%}else{%>
+                              <% for(var i = 0; i < catagory.length; i++) { %>
+                                 <option value="<%= catagory[i].id %>"><%= catagory[i].name %></option>
+                              <% } %>
+                           <% } %>
+                            
+                        <% } %>                       
+                        </select>
+                    </div>
+                    <p></p>
+
+                <div class="form-row">
+                  <span class="label"></span>
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%> 
+                      <input type="text" placeholder="Rent" name="tbrent" id="tbrent" class="form-control" 
+                        tabindex="5" maxlength="15" value="<%= moviedata[0].rent %>">
+                  <%}else{%>
+                    <input type="text" placeholder="Rent" name="tbrent" id="tbrent" class="form-control" 
+                      tabindex="5" maxlength="15">
+                  <%}%>
+                  
+                </div>   
+                <p></p>
+                <div class="form-row">
+                  <span class="label"></span>
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%> 
+                      <input type="text" placeholder="Copies" name="tbcopy" id="tbcopy" class="form-control" 
+                        tabindex="5" maxlength="15" value="<%= moviedata[0].copies %>">
+                  <%}else{%>
+                    <input type="text" placeholder="Copies" name="tbcopy" id="tbcopy" class="form-control" 
+                      tabindex="5" maxlength="3">
+                  <%}%>
+                  
+                </div>   
+                <p></p>
+                  <% if(typeof moviedata != 'undefined' && moviedata != "" ) {%>
+                    <input type="submit" class="btn btn-primary" id="btnupdatemovie"  value="Update"/>
+                    <input type="hidden" id="hdnid" name="hdnid" value="<%= moviedata[0].movie_id %>"/>
+                    <input type="button" class="btn btn-primary" id="btnaddmoviecancel" onclick="location.href='/admin_individual_movies?<%= movid%>';"  value="Cancel"/>
+                  <%}else{%>
+                    
+                    <input type="submit" class="btn btn-primary" id="btnaddmovie"  value="Add"/>
+                    <input type="button" class="btn btn-primary" id="btnaddmoviecancel" onclick="location.href='/homepage_admin';"  value="Cancel"/>
+                  <%}%>
+                  
+                  <p></p><p></p>
+             <!--  </form> -->
+     
+
+          </div>
+ 
+         
+        
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      
+    
+    </div>
+
+
+
+
+</div>
+</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <!-- / Sort Navigation -->
+    
+  </div>
+
+
+  
+  </div>
+</div>
+  </body>

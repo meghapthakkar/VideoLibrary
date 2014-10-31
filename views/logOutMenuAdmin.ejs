@@ -1,0 +1,12 @@
+<div id="top-nav">
+      <ul>
+        <li class="home"><a href="/homepage_admin">Home</a></li>
+          <% if(typeof dpname != 'undefined' && dpname != "" ) {%>
+            <li style="padding-right: 7px;">Welcome <%= dpname%></li>
+            <li style="padding-right: 7px;"><a href="/logout">LogOut</a></li>
+          <%}else{%>
+            <li style="padding-right: 7px;">Welcome Guest</li>
+            
+          <%}%>
+      </ul>
+    </div>
